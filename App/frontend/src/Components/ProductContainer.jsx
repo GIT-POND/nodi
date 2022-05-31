@@ -1,4 +1,6 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
+
 
 const ProductContainer = (props) => { 
     return (<>
@@ -32,7 +34,9 @@ const ProductContainer = (props) => {
         `}</style>
 
         <div className='product' key={props.slug}>
-            <img className='productImg' src={props.image} alt={props.name} />
+            <Link to={`/product/${props.id}`}>
+                <img className='productImg' src={props.image} alt={props.name} />
+            </Link>
             <section className='productDesc'>
                 <p className='productName'>{props.name}</p>
                 <p>{props.brand}</p>

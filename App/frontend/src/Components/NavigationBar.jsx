@@ -1,21 +1,29 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 
 function NavigationBar() {
   return (<>
     <style>{`
         header{
             background-color: #404040;
-            padding: 1rem;
+            padding: .5rem;
+            display: flex;
+            align-items: center;
         }
-        header a{
+        a{
             text-decoration: none;
             color: #fff;
-            font-size:x-large;
+        }
+        li{
+          list-style-type: none;
         }
     `}</style>
 
     <header>
         <a href="/">e-shop</a>
+        <ul>
+          <li><Link to='products'>Products</Link></li>
+        </ul>
     </header>
   </>)
 }

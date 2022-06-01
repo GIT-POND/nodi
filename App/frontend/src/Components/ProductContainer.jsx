@@ -1,49 +1,28 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import Card from 'react-bootstrap/Card'
 
 
 const ProductContainer = (props) => { 
     return (<>
-
         <style>{`
-            .product {
-                margin: .5em;
-                width: 17em;
-
-                display: flex;
-                flex-direction: column;
-
-                border-radius: .5em;
-            }
-
-            .productImg {
-                width: 17em;
-                margin-bottom: auto;
-            }
-
-            .productDesc {
-                font-size: small;
-                font-weight: 500;
-                padding-bottom: .5em;
-
-            }
-
-            .productName{
-                word-wrap: normal;
+            #noDeco{
+                text-decoration:none;
+                color:black;
             }
         `}</style>
 
-        <div className='product' key={props.slug}>
+        <Card key={props.id} className='border-0'>
             <Link to={`/product/${props.id}`}>
-                <img className='productImg' src={props.image} alt={props.name} />
+                <Card.Img src={props.image} alt={props.name} />
             </Link>
-            <section className='productDesc'>
-                <p className='productName'>{props.name}</p>
-                <p>{props.brand}</p>
-                <p>${props.price} USD</p>
-            </section>
-        </div>
-
+            <Card.Body>
+                <Link to={`/product/${props.id}`} id='noDeco'>
+                    <Card.Title>{props.name}</Card.Title>
+                </Link>
+                <Card.Text>${props.price} USD</Card.Text>
+            </Card.Body>
+        </Card>
     </>)
 }
 

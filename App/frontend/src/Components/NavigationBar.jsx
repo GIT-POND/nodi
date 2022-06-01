@@ -1,30 +1,36 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
+
+import Navbar from 'react-bootstrap/Navbar'
+import Nav from 'react-bootstrap/Nav'
+import Container from 'react-bootstrap/Container'
+import {LinkContainer} from 'react-router-bootstrap'
 
 function NavigationBar() {
   return (<>
-    <style>{`
-        header{
-            background-color: #404040;
-            padding: .5rem;
-            display: flex;
-            align-items: center;
-        }
-        a{
-            text-decoration: none;
-            color: #fff;
-        }
-        li{
-          list-style-type: none;
-        }
-    `}</style>
+    <div className='mb-3'>
+      <Navbar bg='dark' variant='dark'>
+        <Container>
+          <LinkContainer to='/'> 
+            <Navbar.Brand>eShop</Navbar.Brand>
+          </LinkContainer>
 
-    <header>
-        <a href="/">e-shop</a>
-        <ul>
-          <li><Link to='products'>Products</Link></li>
-        </ul>
-    </header>
+          <Nav className='me-auto'>
+            <LinkContainer to='/products'>
+              <Nav.Link>Graphic Tees</Nav.Link>
+            </LinkContainer>
+            <LinkContainer to='/products'>
+              <Nav.Link>Shirts</Nav.Link>
+            </LinkContainer>
+          </Nav>
+
+          <Nav>
+            <LinkContainer to='/products'>
+              <Nav.Link>Cart</Nav.Link>
+            </LinkContainer>
+          </Nav>
+        </Container>
+      </Navbar>
+    </div>
   </>)
 }
 
